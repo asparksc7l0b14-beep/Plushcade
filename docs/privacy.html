@@ -52,8 +52,11 @@
   no advertising SDK and no crash-reporting service. It does not read Your contacts, location,
   photos, microphone, camera, calendar, call log or installed-app list, and it does not ask for
   those permissions.</p>
-  <p>The Application does not transmit any data off the Device. It works with the network switched
-  off, and it makes no network requests of its own.</p>
+  <p>The Application has no server of its own and sends no usage data, progress or identifiers
+  anywhere. Its interface typefaces are loaded through Android’s Downloadable Fonts mechanism,
+  which is the only network activity involved in running it; see <a href="#fonts">Fonts</a> below.
+  The Application stays fully playable with the network switched off — Android simply falls back
+  to a system typeface.</p>
 
   <h2>Information stored on Your Device</h2>
   <p>So that progress survives between sessions, the Application saves a small amount of data in
@@ -68,13 +71,26 @@
   <p>The Application requests the following Android permissions: VIBRATE, for haptic feedback on the claw and menu controls; and INTERNET, which is used only by the Android Downloadable Fonts mechanism described below and is also declared by the 3D rendering library the Application is built on — all game models, sounds and art ship inside the app package. No other
   permission is requested.</p>
 
+  <h2 id="fonts">Fonts</h2>
+  <p>The Application displays two Google Fonts typefaces, Baloo 2 and Nunito. They are not bundled
+  into the app package; they are requested at runtime through Android’s standard Downloadable
+  Fonts mechanism, which is served on the Device by the Google Play Services font provider
+  (<code>com.google.android.gms.fonts</code>). Such a request names the typeface wanted and is
+  handled by Google Play Services, a Google component that is part of the Device’s software
+  rather than of the Application; it is governed by
+  <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>. No game data,
+  progress or identifier of Ours travels with that request, and We receive nothing back from it. If
+  the typefaces cannot be fetched, Android falls back to a system typeface and the Application works
+  exactly as before.</p>
+
   <h2>Third parties</h2>
-  <p>The Application contains no third-party analytics, advertising or attribution components, and
-  We do not sell, rent or share information with anyone — because none is collected.</p>
+  <p>The Application contains no third-party analytics, advertising, attribution or crash-reporting
+  components. Apart from the font provider described above it talks to no service, and We do not
+  sell, rent or share information with anyone — because We collect none.</p>
 
   <h2>Children&rsquo;s privacy</h2>
   <p>The Application does not knowingly collect any information from anyone, including children
-  under the age of 13. As no data is collected or transmitted, there is nothing for Us to store,
+  under the age of 13. As no personal data is collected, there is nothing for Us to store,
   disclose or delete on request.</p>
 
   <h2>Security</h2>
